@@ -1,10 +1,10 @@
 import React from 'react';
-import { View } from 'react-native';
+import {View, Text} from 'react-native';
 
-// import { Container } from './styles';
-
-export default function SignUp() {
+export default function Delivery() {
   return (
-    <View />
+    <View>
+      <Text>MEU DEUS</Text>
+    </View>
   );
 }

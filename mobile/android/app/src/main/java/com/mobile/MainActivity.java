@@ -13,7 +13,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "mobile";
+    return "fastfeet";
   }
 
   @Override
@@ -22,7 +22,8 @@ public class MainActivity extends ReactActivity {
       @Override
       protected ReactRootView createRootView() {
         return new RNGestureHandlerEnabledRootView(MainActivity.this);
-      }
+      };
     };
   }
 }
+

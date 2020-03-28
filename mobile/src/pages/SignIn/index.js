@@ -1,12 +1,6 @@
 import React from 'react';
-import { Text } from 'react-native';
-
-// import { Container } from './styles';
+import {View} from 'react-native';
 
 export default function SignIn() {
-  return (
-    <Text>
-      Ola Mundo
-    </Text>
-  );
+  return <View />;
 }
