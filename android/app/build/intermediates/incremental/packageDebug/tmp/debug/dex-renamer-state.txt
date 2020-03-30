@@ -1,0 +1,4 @@
+#Sun Mar 29 20:21:49 BRT 2020
+base.0=/media/filipe/Disco Local/repos/modulo10-gobarber-mobile/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
