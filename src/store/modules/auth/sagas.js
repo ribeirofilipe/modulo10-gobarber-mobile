@@ -2,7 +2,6 @@ import { Alert } from 'react-native';
 import { takeLatest, call, put, all } from 'redux-saga/effects';
 
 import api from '~/services/api';
-// import history from '~/services/history';
 
 import { signInSuccess, signFailure } from './actions';
 
@@ -10,7 +9,7 @@ export function* signIn({ payload }) {
   try {
     const { email, password } = payload;
 
-    const response = yield call(api.post, 'session', {
+    const response = yield call(api.post, '/session', {
       email,
       password,
     });
@@ -26,8 +25,8 @@ export function* signIn({ payload }) {
 
     yield put(signInSuccess(token, user));
 
-    // history.push('/dashboard');
   } catch (err) {
+    console.tron.log(err);
     Alert.alert('Falha na autenticação', 'Houve um erro no login, verifique seus dados.');
     yield put(signFailure());
   }
@@ -43,7 +42,6 @@ export function* signUp({ payload }) {
       password,
     });
 
-    // history.push('/');
   } catch (err) {
     Alert.alert('Falha no registro', 'Houve um erro no cadastro, verifique seus dados.');
     yield put(signFailure());
@@ -61,7 +59,6 @@ export function setToken({ payload }) {
 }
 
 export function* signOut() {
-  // yield history.push('/');
 }
 
 export default all([

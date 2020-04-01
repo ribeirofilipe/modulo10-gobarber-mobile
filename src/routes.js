@@ -1,19 +1,38 @@
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {
+  createAppContainer,
+  createSwitchNavigator
+} from 'react-navigation';
+
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 
-const AppStack = createStackNavigator();
+import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile';
 
-export default function Routes() {
-  return (
-    <NavigationContainer>
-      <AppStack.Navigator screenOptions={{headerShown: false}}>
-        <AppStack.Screen name="SignIn" component={SignIn} />
-        <AppStack.Screen name="SignUp" component={SignUp} />
-      </AppStack.Navigator>
-    </NavigationContainer>
-  );
-}
+export default (signedIn = false) =>
+  createAppContainer(
+    createSwitchNavigator({
+      SignIn: createSwitchNavigator({
+        SignIn,
+        SignUp,
+      }),
+      App: createBottomTabNavigator({
+        Dashboard,
+        Profile
+      }, {
+        tabBarOptions: {
+          keyboardHidesTabBar: true,
+          activeTintColor: '#FFF',
+          inactiveTintColor: 'rgba(255, 255, 255, 0.6)',
+          style: {
+            backgroundColor: '#8D41A8',
+          }
+        }
+      })
+    }, {
+      initialRouteName: signedIn ? 'App' : 'Sign'
+    })
+  )
+
